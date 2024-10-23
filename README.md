@@ -7,12 +7,12 @@
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
-- [Components Used](#components-used)
-- [System Design](#system-design)
+- [Components](#components)
+- [Libraries Used](#libraries-used)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Future Improvements](#future-improvements)
-
+- [Contributing](#contributing)
+- [License](#license)
 ---
 
 ## Overview
@@ -23,23 +23,38 @@ This project implements a **Remote Patient Monitoring System** that uses sensors
 
 ## Features
 
-- **Remote Monitoring**: The system sends SMS alerts to a registered mobile number when patient conditions exceed critical thresholds.
-- **Data Logging**: Patient data (name, NHS number, date, time, temperature, and heart rate) is stored locally on an SD card for record-keeping.
-- **Real-time Display**: Health data is displayed on an OLED screen, including the patient's name, NHS number, temperature, and heartbeat.
-- **System Reset**: After receiving alerts, the monitoring station can remotely reset the system to avoid further alerts.
+- **Real-Time Monitoring:** Tracks patient’s heart rate and temperature.
+- **Local Display:** Shows patient name, NHS number, temperature, heart rate, date, and time on an OLED screen.
+- **Remote Alerts:** Sends SMS alerts via GSM when critical thresholds are exceeded.
+- **Data Storage:** Logs all health data (temperature, heart rate, etc.) to a micro-SD card for reference.
+- **Remote Reset and Set:** Allows remote resetting of the system after an alert and re-enables for further monitoring.
 
 ---
 
-## Components Used
+## Components
 
-- **Arduino Mega**
-- **RTC Module (DS3231)**
-- **Temperature Sensor (DS18B20)**
-- **Heartbeat Sensor**
-- **GSM Module**
-- **SD Card Module**
-- **OLED Display**
-- **Breadboard, Jumper Wires**
+- **Microcontroller:** Arduino Mega
+- **Sensors:**
+  - Heartbeat sensor
+  - Temperature sensor (DS18B20)
+- **Modules:**
+  - RTC Module (DS3232)
+  - GSM Module (SIM900)
+  - SD Card Module
+  - OLED Display
+- **Additional Components:** Breadboard, wires, SIM card, power supply.
+
+---
+
+## Libraries Used
+
+- **Adafruit GFX Library** (for OLED display)
+- **Adafruit SSD1306 Library** (for OLED display)
+- **OneWire Library** (for DS18B20 temperature sensor)
+- **DallasTemperature Library** (for DS18B20 sensor)
+- **RTClib** (for DS3232 RTC)
+- **SD Library** (for data storage)
+- **SoftwareSerial** (for GSM communication)
 
 ---
 
@@ -55,20 +70,54 @@ Thresholds for alerts:
 
 ## Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-repo/Remote-Patient-Monitoring-System.git
+To install and set up the project:
 
-2. **Upload the Code**
-   - Use the Arduino IDE to upload the code to the Arduino Mega.
+1. **Clone the Repository:**
+    ```bash
+    git clone https://github.com/stvnjnk/remote-patient-monitoring-system
+    ```
 
+2. **Open the Project in Arduino IDE:**
+    - Ensure you have Arduino IDE installed. Download it from [here](https://www.arduino.cc/en/software).
+    - Open the `.ino` file in the Arduino IDE.
 
+3. **Install Required Libraries:**
+    - Navigate to **Sketch > Include Library > Manage Libraries**.
+    - Search and install the following libraries:
+      - Adafruit GFX
+      - Adafruit SSD1306
+      - OneWire
+      - DallasTemperature
+      - RTClib
+      - SD
+      - SoftwareSerial
 
+4. **Upload the Code:**
+    - Connect the Arduino Mega to your computer.
+    - Select the correct board (**Arduino Mega 2560**) and port from **Tools > Board** and **Tools > Port**.
+    - Click **Upload** to upload the code to the Arduino.
+
+5. **Assemble the Circuit:**
+    - Follow the wiring diagram included in the repository to connect the sensors and modules to the Arduino Mega.
 
 ---
 
 ## Future Improvements
 
-- Extend Threshold Range: Adjust threshold values based on actual patient conditions.
-- Integrate Additional Sensors: Include sensors like oxygen levels or blood pressure for more comprehensive monitoring.
-- Web Dashboard: Add a web-based dashboard for remote monitoring and data visualization.
+- Integrate additional sensors (e.g., oxygen saturation, blood pressure) for more comprehensive health monitoring.
+- Implement a more user-friendly mobile application interface for receiving alerts and reviewing logs.
+- Improve data storage capabilities and add cloud integration for long-term monitoring and analysis.
+- Enhance power efficiency for better use in real-life healthcare environments.
+
+---
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit pull requests or open issues for improvements or bug fixes.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+

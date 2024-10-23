@@ -62,4 +62,13 @@ Thresholds for alerts:
 2. **Upload the Code**
    - Use the Arduino IDE to upload the code to the Arduino Mega.
 
-3. 
+
+
+
+---
+
+## Future Improvements
+
+- Extend Threshold Range: Adjust threshold values based on actual patient conditions.
+- Integrate Additional Sensors: Include sensors like oxygen levels or blood pressure for more comprehensive monitoring.
+- Web Dashboard: Add a web-based dashboard for remote monitoring and data visualization.

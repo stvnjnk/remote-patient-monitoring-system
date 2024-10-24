@@ -5,14 +5,17 @@
 ---
 
 ## Table of Contents
+
 - [Overview](#overview)
 - [Features](#features)
 - [Components](#components)
 - [Libraries Used](#libraries-used)
+- [How It Works](#how-it-works)
 - [Installation](#installation)
 - [Future Improvements](#future-improvements)
 - [Contributing](#contributing)
 - [License](#license)
+
 ---
 
 ## Overview
@@ -58,7 +61,7 @@ This project implements a **Remote Patient Monitoring System** that uses sensors
 
 ---
 
-## System Design
+## How It Works
 
 The system is based on an Arduino Mega microcontroller. The sensors are connected to the Arduino, which collects data such as temperature and heart rate. The data is displayed on an OLED screen, and in case of critical conditions, an alert message is sent via a GSM module. All the data is also stored on an SD card for future reference.
 
@@ -120,4 +123,3 @@ Contributions are welcome! Please feel free to submit pull requests or open issu
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
-
